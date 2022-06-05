@@ -1,0 +1,13 @@
+<table class="list_shows table table-bordered w-50">
+    <tr>
+        <th>Show Id</th><th>Screen Id</th><th>Movie Id</th><th>Date</th><th>Timing</th><th>Action</th>
+    </tr>
+    <tr *ngFor="let s of shows; let i = index">
+        <td>{{s.show_id}}</td>
+        <td>{{s.screen_id}}</td>
+        <td>{{s.movie_id}}</td>
+        <td>{{s.date}}</td>
+        <td>{{s.timing}}</td>
+        <td><button (click)="delete(i)" class="btn btn-primary">Update</button>&nbsp;<button (click)="delete(i)" class="btn btn-danger">Delete</button></td>
+    </tr>
+</table>

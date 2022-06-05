@@ -1,0 +1,33 @@
+<form (ngSubmit)="add()" class="add_movie was-validated w-50">
+    <div class="form-group">
+      <label for="movie_id">Movie Id:</label>
+      <input type="number" class="form-control" name="movie_id" [(ngModel)]="movie.movie_id" required>
+      <div class="invalid-feedback">Please fill out the Movie Id.</div>
+    </div>
+    <div class="form-group">
+        <label for="movie_name">Movie Name:</label>
+        <input type="text" class="form-control" name="movie_name" [(ngModel)]="movie.movie_name" required>
+        <div class="invalid-feedback">Please fill out the Movie Name.</div>
+    </div>
+    <div class="form-group">
+        <label for="status">Status:</label>
+        <input type="text" class="form-control" name="status" [(ngModel)]="movie.status" required>
+        <div class="invalid-feedback">Please fill out the Status.</div>
+    </div>
+    <div class="form-group">
+        <label for="language">Language:</label>
+        <input type="text" class="form-control" name="language" [(ngModel)]="movie.language" required>
+        <div class="invalid-feedback">Please fill out the Language.</div>
+      </div>  
+    <div class="form-group">
+      <label for="genre">Genre:</label>
+      <input type="text" class="form-control" name="genre" [(ngModel)]="movie.genre" required>
+      <div class="invalid-feedback">Please fill out the Genre.</div>
+    </div>
+    <div class="form-group">
+      <label for="format">Format:</label>
+      <input type="text" class="form-control" name="format" [(ngModel)]="movie.format" required>
+      <div class="invalid-feedback">Please fill out the Format.</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

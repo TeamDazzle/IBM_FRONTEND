@@ -1,0 +1,14 @@
+<table class="list table table-bordered w-50">
+    <tr>
+        <th>Movie Id</th><th>Movie Name</th><th>Status</th><th>Langauge</th><th>Genre</th><th>Format</th><th>Action</th>
+    </tr>
+    <tr *ngFor="let m of movies; let i = index">
+        <td>{{m.movie_id}}</td>
+        <td>{{m.movie_name}}</td>
+        <td>{{m.status}}</td>
+        <td>{{m.language}}</td>
+        <td>{{m.genre}}</td>
+        <td>{{m.format}}</td>
+        <td><button (click)="delete(i)" class="btn btn-primary">Update</button>&nbsp;<button (click)="delete(i)" class="btn btn-danger">Delete</button></td>
+    </tr>
+</table>
