@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -23,21 +24,69 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 @Entity
 @Table(name = "bookings")
 public class Bookings {
+	
 	@Id
 	@GeneratedValue
 	private int bookingId;
 	@Column(length = 20)
 	private String bookingDate;
+	@Column
+	private double price;
+	@Column
+	private int tickets;
+	@JsonIgnore
+	@Column
+	private double totalcost;
 	
+
 	
+	@ManyToOne
+	@JoinColumn(name = "email")
+	private Users user;
+		
 	@ManyToOne
 	@JoinColumn(name = "showId")
 	private Shows shows;
-
+	
 	
 	//Getters and Setters
+	
+	
+	
 	public int getBookingId() {
 		return bookingId;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getTickets() {
+		return tickets;
+	}
+
+	public void setTickets(int tickets) {
+		this.tickets = tickets;
+	}
+
+	public double getTotalcost() {
+		return totalcost;
+	}
+
+	public void setTotalcost(double totalcost,int tickets, double price) {
+		this.totalcost = tickets*price;
+	}
+
+	public Users getUser() {
+		return user;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
 	}
 
 	public void setBookingId(int bookingId) {
@@ -59,12 +108,6 @@ public class Bookings {
 	public void setShows(Shows shows) {
 		this.shows = shows;
 	}
-	
-	//private Seats seat;
-	//private User user;
-	
-	
-	
-	
+
 
 }

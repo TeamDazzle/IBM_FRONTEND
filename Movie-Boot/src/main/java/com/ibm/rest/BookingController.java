@@ -21,24 +21,27 @@ public class BookingController {
 	@Autowired
 	private BookingService service;
 	
-	
+	//http://localhost:8000/book
 	@PostMapping(value = "/book/{showId}", consumes = "application/json")
 	public String add(@RequestBody Bookings b, @PathVariable int showId) {
 		int id = service.save(b,showId);
 		return "Booking is Confirmed, Your Booking Id is: "+id;
 	}
 	
-	
+	//http://localhost:8000/getBook
 	@GetMapping(value = "/getBook", produces = "application/json")
 	public Bookings fetch(@RequestParam int bookingId) {
 		return service.fetch(bookingId);
 	}
 	
+	//http://localhost:8000/getShowBook
 	@GetMapping(value = "/getShowBook/{showId}", produces = "application/json")
 	public Bookings get(@PathVariable int showId){
 		return service.list(showId);
 	}
 	
+	
+	//http://localhost:8000/delete
 	@DeleteMapping(value = "/delete/{bookingId}",produces = "application/json")
 	public boolean delete(@PathVariable int bookingId) {
 		service.remove(bookingId);

@@ -19,20 +19,20 @@ public class ScreenController {
 	@Autowired
 	private ScreenService service;
 	
-	//http://localhost:8880/add
+	//http://localhost:8000/add
 	@PostMapping(value = "/add", consumes = "application/json")
 	public String save(@RequestBody Screen s) {
 		int sId = service.save(s);
 		return "Screen Added with id: "+sId;
 	}
 	
-	//http://localhost:8880/get/sId
+	//http://localhost:8000/get/sId
 	@GetMapping(value = "/get/{sId}", produces = "application/json")
 	public Screen fetch(@PathVariable int sId) {
 		return service.fetch(sId);
 	}
 	
-	//http://localhost:8880/list
+	//http://localhost:8000/list
 	@GetMapping(value = "/list", produces = "application/json")
 	public List<Screen> list(){
 		return service.list();
