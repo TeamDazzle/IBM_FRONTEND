@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Users get(String email) {
+	public Users fetch(String email) {
 		return repo.findById(email).get();
 	}
 
@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean checklogin(String email, String password) {
 		if (checkuser(email)) {
-			Users users = get(email);
+			Users users = fetch(email);
 			if(users.getPassword().equals(password)) {
 				return true;
 			}

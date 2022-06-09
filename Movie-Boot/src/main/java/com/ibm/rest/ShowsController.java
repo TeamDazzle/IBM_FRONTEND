@@ -31,5 +31,11 @@ public class ShowsController {
 		return service.fetch(sId);
 	}
 	
+	//http://localhost:8000/listShows
+	@GetMapping(value = "/listShows", produces = "application/json")
+	public List<Shows> list() {
+		return service.list();
+	}
+	
 
 }

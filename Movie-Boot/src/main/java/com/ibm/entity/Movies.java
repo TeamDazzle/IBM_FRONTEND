@@ -1,9 +1,16 @@
 package com.ibm.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 
 @Entity
@@ -27,6 +34,9 @@ public class Movies {
 	@Column(length = 20)
 	private String imageUrl;
 	
+
+	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+	private List<Shows> shows = new ArrayList<Shows>();
 	
 	//Getters and Setters
 	public int getMovie_id() {

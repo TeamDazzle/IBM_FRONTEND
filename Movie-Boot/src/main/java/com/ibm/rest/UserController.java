@@ -39,7 +39,7 @@ public class UserController {
 	@GetMapping("/users/{email}")
 	public ResponseEntity<Users> get(@PathVariable String email) {
 		try {
-			Users users =  service.get(email);
+			Users users =  service.fetch(email);
 			return new ResponseEntity<Users>(users,HttpStatus.OK);
 		}
 		catch(NoSuchElementException e) {
@@ -57,7 +57,7 @@ public class UserController {
 	//http://localhost:8000/users/getname/s@gmail.com
 	@GetMapping("users/getname/{email}")
 	public String getUser(@PathVariable String email) {
-		String mail = service.get(email).getFullname();
+		String mail = service.fetch(email).getFullname();
 		return mail;
 	}
 	
@@ -71,7 +71,7 @@ public class UserController {
 	@PutMapping("users/{email}")
 	public ResponseEntity<Users> update(@RequestBody Users users, @PathVariable String email) {
 		try {
-			Users existUser = service.get(email); 
+			Users existUser = service.fetch(email); 
 			System.out.print(existUser);
 			service.save(users);
 			return new ResponseEntity<Users>(HttpStatus.OK);

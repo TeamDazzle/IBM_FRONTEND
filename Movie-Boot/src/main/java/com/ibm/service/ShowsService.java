@@ -11,5 +11,7 @@ public interface ShowsService {
 	Shows fetch(int sId);
 	
 	Shows byMovieId(int movie_id);
+	
+	List<Shows> list();
 
 }

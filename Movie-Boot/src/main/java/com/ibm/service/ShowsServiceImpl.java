@@ -45,5 +45,10 @@ public class ShowsServiceImpl implements ShowsService {
 		return (Shows) repo.findByMovie(movie_id);
 	}
 
+	@Override
+	public List<Shows> list() {
+		return repo.findAll();
+	}
+
 
 }

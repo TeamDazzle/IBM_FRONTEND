@@ -6,12 +6,13 @@ import com.ibm.entity.Bookings;
 
 public interface BookingService {
 	
-	int save(Bookings b, int showId);
+	int save(Bookings booking, int seatId, String email);
+	
+	List<Bookings> listAll();
+	
+	List<Bookings> listByUsers(String email);
 
 	Bookings fetch(int bookingId);
-	
-	Bookings list(int showId); //Admin
-
 	
 	boolean remove(int bookingId);
 

@@ -22,24 +22,33 @@ public class BookingController {
 	private BookingService service;
 	
 	//http://localhost:8000/book
-	@PostMapping(value = "/book/{showId}", consumes = "application/json")
-	public String add(@RequestBody Bookings b, @PathVariable int showId) {
-		int id = service.save(b,showId);
+	@PostMapping(value = "/book/{showId}/{email}", consumes = "application/json")
+	public String add(@RequestBody Bookings b, @PathVariable int showId, @PathVariable String email) {
+		System.out.println(showId+" "+email);
+		int id = service.save(b,showId,email);
 		return "Booking is Confirmed, Your Booking Id is: "+id;
 	}
 	
 	//http://localhost:8000/getBook
-	@GetMapping(value = "/getBook", produces = "application/json")
-	public Bookings fetch(@RequestParam int bookingId) {
+	@GetMapping(value = "/getBook/{bookingId}", produces = "application/json")
+	public Bookings fetch(@PathVariable int bookingId) {
 		return service.fetch(bookingId);
 	}
 	
 	//http://localhost:8000/getShowBook
-	@GetMapping(value = "/getShowBook/{showId}", produces = "application/json")
-	public Bookings get(@PathVariable int showId){
-		return service.list(showId);
+	@GetMapping(value = "/getShowBook", produces = "application/json")
+	public List<Bookings> get(){
+		return service.listAll();
 	}
 	
+	
+	//http://localhost:8000/getBookUser
+	@GetMapping(value = "/getBookUser", produces = "application/json")
+	public List<Bookings> find(@RequestParam String email){
+		return service.listByUsers(email);
+	}
+	
+
 	
 	//http://localhost:8000/delete
 	@DeleteMapping(value = "/delete/{bookingId}",produces = "application/json")

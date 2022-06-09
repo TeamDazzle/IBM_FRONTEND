@@ -8,7 +8,7 @@ public interface UserService {
 	
 	void save(Users users);
 	
-	Users get(String email);
+	Users fetch(String email);
 	
 	List<Users> list();
 	

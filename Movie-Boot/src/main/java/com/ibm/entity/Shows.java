@@ -43,8 +43,8 @@ public class Shows {
 	private String date;
 
 
-	@OneToOne
-	@JoinColumn(name = "screen_id", unique = true)
+	@ManyToOne
+	@JoinColumn(name = "screen_id")
 	private Screen screen;
 	
 	@ManyToOne

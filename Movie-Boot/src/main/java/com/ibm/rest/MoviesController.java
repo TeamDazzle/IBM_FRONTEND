@@ -43,7 +43,7 @@ public class MoviesController {
 		return service.byName(mName);
 	}
 	
-	//http://localhost:8880/listmovies
+	//http://localhost:8000/listmovies
 	@GetMapping(value="/listMovies", produces="application/json")
 	public List<Movies> list()
 	{
